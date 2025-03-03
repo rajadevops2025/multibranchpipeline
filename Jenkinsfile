@@ -8,8 +8,9 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: "${env.BRANCH_NAME}",credentialsId: '2dee6608-a49a-4ab0-90c0-3836e8f88c3b',url: 'https://github.com/rajadevops2025/multibranchpipeline.git'
-            }
+                git branch: "${env.BRANCH_NAME}", 
+    credentialsId: '2dee6608-a49a-4ab0-90c0-3836e8f88c3b', 
+    url: 'https://github.com/rajadevops2025/multibranchpipeline.git'
         }
 
         stage('Build') {
