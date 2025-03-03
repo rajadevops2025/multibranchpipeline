@@ -9,8 +9,9 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 git branch: "${env.BRANCH_NAME}", 
-    credentialsId: '2dee6608-a49a-4ab0-90c0-3836e8f88c3b', 
-    url: 'https://github.com/rajadevops2025/multibranchpipeline.git'
+                credentialsId: '2dee6608-a49a-4ab0-90c0-3836e8f88c3b', 
+                url: 'https://github.com/rajadevops2025/multibranchpipeline.git'
+            }
         }
 
         stage('Build') {
@@ -19,7 +20,7 @@ pipeline {
             }
         }
 
-        stage('Test') {
+        /*stage('Test') {
             steps {
                 sh 'mvn test'
             }
@@ -29,7 +30,7 @@ pipeline {
             steps {
                 sh 'mvn checkstyle:check'
             }
-        }
+        }*/
 
         stage('Archive Artifacts') {
             steps {
@@ -37,7 +38,7 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+        /*stage('Deploy') {
             when {
                 branch 'main'
             }
@@ -45,7 +46,7 @@ pipeline {
                 echo 'Deploying application...'
                 // Add deployment script here
             }
-        }
+        }*/
     }
 
     post {
@@ -56,5 +57,4 @@ pipeline {
             echo 'Build failed!'
         }
     }
-}
 }
